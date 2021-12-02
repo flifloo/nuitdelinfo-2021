@@ -1,0 +1,23 @@
+{% if not people.validated %}
+    {% if people.pending_edit_of %}
+        <h1>This edit is not validated !</h1>
+    {% else %}
+        <h1>This new entry is not validated !</h1>
+    {% endif %}
+{% endif %}
+
+{{ people.first_name }} {{ people.last_name }} <br />
+{{ people.title }} <br />
+<br />
+{{ people.description.html | safe }} <br />
+<br />
+{{ people.birth }} <br />
+{{ people.death }} <br />
+<br />
+{{ people.history.html | safe }} <br />
+{{ people.genealogy.html | safe }} <br />
+{{ people.awards.html | safe }} <br />
+{{ people.pro_life.html | safe }} <br />
+<br />
+{{ people.testimonials.html | safe }} <br />
+{{ people.sources.html | safe }}
