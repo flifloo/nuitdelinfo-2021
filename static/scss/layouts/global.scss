@@ -1,0 +1,72 @@
+body{
+    background-color: $background;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2{
+    @include font-courgette;
+    color: $light;
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-size: 60px;
+}
+
+h2{
+    font-size: 40px;
+}
+
+img{
+    max-width: 100%;
+}
+
+a.btn{
+    display: block;
+    width: fit-content;
+    width: -moz-fit-content;
+    color: $light;
+    padding: 10px 20px;
+    border: 2px solid $light;
+    font-size: 18px;
+}
+
+p{
+    margin: 5px 0;
+}
+
+a, p, span{
+    @include font-play;
+    transition-duration: 0.3s;
+    color: $light;
+}
+
+a:hover{
+    color: $accent !important;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

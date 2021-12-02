@@ -1,5 +1,42 @@
+{% extends 'base.html' %}
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<script src="{% static 'js/script.js' %}"></script>
-<h1>Hewo World :3</h1>
+{% block content %}
+    <section>
+        <h2>Carte dynamique</h2>
+    </section>
+    <section>
+        <h2>Articles récents</h2>
+        <div class="flex-card">
+            <div class="card">
+                <div class="img-container">
+                    <img src="{% static 'images/sauvetage.png' %}">
+                </div>
+                <div class="content">
+                    <p class="date">16/02/2020</p>
+                    <p class="titre">Sauvetage risqué en côte d'Ivoire</p>
+                    <a class="btn" href="">Voir l'article</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="{% static 'images/sauvetage.png' %}">
+                </div>
+                <div class="content">
+                    <p class="date">16/02/2020</p>
+                    <p class="titre">Sauvetage risqué en côte d'Ivoire</p>
+                    <a class="btn" href="">Voir l'article</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-container">
+                    <img src="{% static 'images/sauvetage.png' %}">
+                </div>
+                <div class="content">
+                    <p class="date">16/02/2020</p>
+                    <p class="titre">Sauvetage risqué en côte d'Ivoire</p>
+                    <a class="btn" href="">Voir l'article</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
