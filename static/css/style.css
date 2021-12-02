@@ -17,6 +17,8 @@ a {
 
 h1 {
   font-size: 60px;
+  text-align: center;
+  margin: 10px 0;
 }
 
 h2 {
@@ -37,12 +39,41 @@ a.btn {
   border: 2px solid #efefef;
   font-size: 18px;
 }
+a.btn--blue {
+  color: #00E8C2;
+  border-color: #00E8C2;
+}
 
 p {
   margin: 5px 0;
 }
 
-a, p, span {
+input::-webkit-input-placeholder {
+  font-family: "Play", sans-serif;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  color: #efefef;
+}
+
+input::-moz-placeholder {
+  font-family: "Play", sans-serif;
+  transition-duration: 0.3s;
+  color: #efefef;
+}
+
+input:-ms-input-placeholder {
+  font-family: "Play", sans-serif;
+  transition-duration: 0.3s;
+  color: #efefef;
+}
+
+input::-ms-input-placeholder {
+  font-family: "Play", sans-serif;
+  transition-duration: 0.3s;
+  color: #efefef;
+}
+
+a, p, span, input, input::placeholder {
   font-family: "Play", sans-serif;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
@@ -54,6 +85,7 @@ a:hover {
 }
 
 .container {
+  padding-top: 100px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -75,6 +107,16 @@ a:hover {
     width: 1170px;
   }
 }
+section {
+  padding-bottom: 50px;
+}
+
+.map {
+  width: 75%;
+  display: block;
+  margin: auto;
+}
+
 nav {
   background-color: #303030;
   padding: 5px 20px;
@@ -86,6 +128,11 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  left: 0;
+  width: -webkit-fill-available;
 }
 nav .logo {
   margin: 0;
@@ -156,13 +203,25 @@ nav .right .search:hover {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .flex-card .card {
-  background: #333333;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 25%;
-          flex: 0 1 25%;
-  margin-bottom: 30px;
+      -ms-flex: 0 1 33%;
+          flex: 0 1 33%;
+  margin-bottom: 70px;
+}
+.flex-card .card .inner {
+  margin: 0 30px;
+  background: #333333;
+}
+.flex-card .card .inner:hover img {
+  cursor: pointer;
+  -webkit-filter: grayscale(70%);
+          filter: grayscale(70%);
+  -webkit-transform: scale(1.2) !important;
+          transform: scale(1.2) !important;
 }
 .flex-card .card .img-container {
   width: 100%;
@@ -172,13 +231,6 @@ nav .right .search:hover {
   -webkit-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
   width: 100%;
-}
-.flex-card .card:hover img {
-  cursor: pointer;
-  -webkit-filter: grayscale(70%);
-          filter: grayscale(70%);
-  -webkit-transform: scale(1.2) !important;
-          transform: scale(1.2) !important;
 }
 .flex-card .card .content {
   padding: 20px;
@@ -194,5 +246,142 @@ nav .right .search:hover {
 .flex-card .card .content a {
   margin: auto;
   margin-top: 30px;
+}
+
+#quicksearch {
+  position: fixed;
+  display: none;
+  padding: 30px;
+  padding-top: 100px;
+  height: 100vh;
+  width: -webkit-fill-available;
+  background: rgba(0, 0, 0, 0.9);
+  top: 0;
+  left: 0;
+}
+#quicksearch:target {
+  display: block !important;
+}
+#quicksearch .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+#quicksearch .close i {
+  font-size: 70px;
+  color: #efefef;
+}
+#quicksearch .close:hover {
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
+#quicksearch .search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+}
+#quicksearch .search-bar input {
+  width: 80%;
+  background: transparent;
+  color: #efefef;
+  font-size: 30px;
+  border: none;
+  border-bottom: 3px solid #efefef;
+  padding: 15px;
+}
+#quicksearch .search-bar input::-webkit-input-placeholder {
+  color: #d3d2d2;
+  font-size: 30px;
+}
+#quicksearch .search-bar input::-moz-placeholder {
+  color: #d3d2d2;
+  font-size: 30px;
+}
+#quicksearch .search-bar input:-ms-input-placeholder {
+  color: #d3d2d2;
+  font-size: 30px;
+}
+#quicksearch .search-bar input::-ms-input-placeholder {
+  color: #d3d2d2;
+  font-size: 30px;
+}
+#quicksearch .search-bar input::placeholder {
+  color: #d3d2d2;
+  font-size: 30px;
+}
+#quicksearch .search-bar i {
+  font-size: 50px;
+  color: #efefef;
+  cursor: pointer;
+}
+#quicksearch .fast-search {
+  margin-top: 50px;
+}
+#quicksearch .fast-search h2 {
+  text-align: center;
+  font-size: 35px;
+}
+#quicksearch .fast-search .flex-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#quicksearch .fast-search .flex-search .search-col {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#quicksearch .fast-search .flex-search .search-col:first-child, #quicksearch .fast-search .flex-search .search-col:nth-child(2) {
+  border-right: 2px solid #00E8C2;
+}
+#quicksearch .fast-search .flex-search .search-col .titre {
+  text-align: center;
+  font-size: 28px;
+  color: #00E8C2;
+  margin: 15px 0;
+}
+#quicksearch .fast-search .flex-search .search-col .search-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 85%;
+  margin: auto;
+  margin-top: 20px;
+  background: #464646;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#quicksearch .fast-search .flex-search .search-col .search-card img {
+  width: 50px;
+}
+#quicksearch .fast-search .flex-search .search-col .search-card .name {
+  font-size: 20px;
+  margin-left: 15px;
 }
 /*# sourceMappingURL=style.css.map */

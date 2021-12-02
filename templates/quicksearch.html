@@ -1,10 +1,72 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% load static %}
+<div id="quicksearch">
+    <a class="close" href="#">
+        <i class="material-icons">close</i>
+    </a>
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher...">
+        <i class="material-icons">search</i>
+    </div>
+    <div class="fast-search">
+        <h2>Résultats rapide</h2>
+        <div class="flex-search">
+            <div class="search-col">
+                <p class="titre">Personnes</p>
+                <div class="search-card">
+                    <img src="{% static 'images/pesquet.jpg' %}">
+                    <p class="name">Thomas Pesquet</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/pesquet.jpg' %}">
+                    <p class="name">Thomas Pesquet</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/pesquet.jpg' %}">
+                    <p class="name">Thomas Pesquet</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/pesquet.jpg' %}">
+                    <p class="name">Thomas Pesquet</p>
+                </div>
+            </div>
+            <div class="search-col">
+                <p class="titre">Articles</p>
+                <div class="search-card">
+                    <img src="{% static 'images/sauvetage.png' %}">
+                    <p class="name">Sauvetage risqué en côte d'Ivoire</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/sauvetage.png' %}">
+                    <p class="name">Sauvetage risqué en côte d'Ivoire</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/sauvetage.png' %}">
+                    <p class="name">Sauvetage risqué en côte d'Ivoire</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/sauvetage.png' %}">
+                    <p class="name">Sauvetage risqué en côte d'Ivoire</p>
+                </div>
+            </div>
+            <div class="search-col">
+                <p class="titre">Bateaux</p>
+                <div class="search-card">
+                    <img src="{% static 'images/bateau.jpg' %}">
+                    <p class="name">SNS 147</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/bateau.jpg' %}">
+                    <p class="name">SNS 147</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/bateau.jpg' %}">
+                    <p class="name">SNS 147</p>
+                </div>
+                <div class="search-card">
+                    <img src="{% static 'images/bateau.jpg' %}">
+                    <p class="name">SNS 147</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

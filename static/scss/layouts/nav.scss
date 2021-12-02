@@ -4,6 +4,11 @@ nav{
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  left: 0;
+  width: -webkit-fill-available;
   .logo{
     margin: 0;
     cursor: pointer;

@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <h1>Les sauveteurs du Dunkerquois</h1>
     <section>
         <h2>Carte dynamique</h2>
+        <img class="map" src="{% static 'images/map.png' %}">
     </section>
     <section>
         <h2>Articles récents</h2>
@@ -39,4 +41,5 @@
             </div>
         </div>
     </section>
+    {% include 'quicksearch.html' %}
 {% endblock %}

@@ -1,23 +1,27 @@
 .flex-card{
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   .card{
-    background: $background3;
-    flex: 0 1 25%;
-    margin-bottom: 30px;
+    flex: 0 1 33%;
+    margin-bottom: 70px;
+    .inner{
+      margin: 0 30px;
+      background: $background3;
+      &:hover{
+      img{
+        cursor: pointer;
+        filter: grayscale(70%);
+        transform: scale(1.2) !important;
+      }
+    }
+    }
     .img-container{
       width: 100%;
       overflow: hidden;
       img{
         transition: all ease-in-out 0.3s;
         width: 100%;
-      }
-    }
-    &:hover{
-      img{
-        cursor: pointer;
-        filter: grayscale(70%);
-        transform: scale(1.2) !important;
       }
     }
     .content{
