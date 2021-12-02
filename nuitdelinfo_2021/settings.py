@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ["3cab-134-214-214-199.ngrok.io", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    "rescue.apps.RescueConfig",
+    "people.apps.PeopleConfig",
+    "error.apps.ErrorConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
