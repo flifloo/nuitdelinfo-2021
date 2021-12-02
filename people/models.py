@@ -22,3 +22,6 @@ class People(Model):
     
     validated = BooleanField(default=False)
     pending_edit_of = ForeignKey("self", on_delete=CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

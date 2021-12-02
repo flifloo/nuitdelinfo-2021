@@ -80,9 +80,12 @@ WSGI_APPLICATION = 'nuitdelinfo_2021.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'localhost',
+        'USER': 'nuitdelinfo_2021',
+        'NAME': 'nuitdelinfo_2021',
+        'PASSWORD': 'nuitdelinfo_2021'
+    },
 }
 
 
