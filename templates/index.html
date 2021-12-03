@@ -27,6 +27,7 @@
     </section>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
     <script>
+        let counter = 0;
         let map = L.map('map').setView([51.127, 2.253], 7);
 
         const iconRetinaUrl = '{% static 'images/marker-icon-2x.png' %}';
@@ -55,6 +56,17 @@
         {% endfor %}
 
         map.addLayer(osmLayer);
+        map.addEventListener('click', function(){
+           counter++;
+           console.log("rickroll loaded");
+           checkRickroll();
+        });
+        function checkRickroll(){
+            if(counter > 5){
+                counter = -9999;
+                L.marker([51.51307, -0.22003]).addTo(map).bindPopup('<a target="_blank" href="https://www.youtube.com/watch?v=hJresi7z_YM">Christmas Present !</a>');
+            }
+        }
      </script>
     {% include 'quicksearch.html' %}
 {% endblock %}
