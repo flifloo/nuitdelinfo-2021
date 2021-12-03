@@ -1,0 +1,17 @@
+{% if not rescue.validated %}
+    {% if rescue.pending_edit_of %}
+        <h1>This edit is not validated !</h1>
+    {% else %}
+        <h1>This new entry is not validated !</h1>
+    {% endif %}
+{% endif %}
+
+{{ boat.name }} <br />
+{{ boat.model }} <br />
+<br />
+{{ boat.description.html | safe }} <br />
+
+<h3>Rescues</h3>
+{% for rescue in rescues.all %}
+    <a href="/a/{{ rescue.pk }}">{{ rescue }}</a>
+{% endfor %}

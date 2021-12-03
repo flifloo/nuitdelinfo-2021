@@ -1,6 +1,8 @@
-from django.db.models import Model, CharField, DateField, ManyToManyField, DecimalField
+from django.db.models import Model, CharField, DateField, ManyToManyField, DecimalField, BooleanField, ForeignKey, \
+    CASCADE
 from django_quill.fields import QuillField
 
+from boat.models import Boat
 from people.models import People
 
 
@@ -15,6 +17,10 @@ class Rescue(Model):
 
     saved = ManyToManyField(People, related_name="saved")
     rescuers = ManyToManyField(People, related_name="rescued")
+    boats = ManyToManyField(Boat)
+
+    validated = BooleanField(default=False)
+    pending_edit_of = ForeignKey(People, on_delete=CASCADE, null=True, blank=True)
 
     description = QuillField()
 

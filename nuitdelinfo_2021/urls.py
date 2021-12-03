@@ -22,8 +22,9 @@ from nuitdelinfo_2021.forms import MyCustomUserForm
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path("a/", include("rescue.urls")),
-    path("p/", include("people.urls")),
+    path("a/", include("rescue.urls"), name="rescue"),
+    path("p/", include("people.urls"), name="people"),
+    path("b/", include("boat.urls"), name="boat"),
     path('admin/', admin.site.urls),
     path('accounts/register/',
          RegistrationView.as_view(

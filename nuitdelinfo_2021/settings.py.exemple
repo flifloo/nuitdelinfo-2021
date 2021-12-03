@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "core.apps.AppConfig",
     "rescue.apps.RescueConfig",
     "people.apps.PeopleConfig",
+    "boat.apps.BoatConfig",
     "error.apps.ErrorConfig",
     'django.contrib.admin',
     'django.contrib.auth',

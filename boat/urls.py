@@ -1,0 +1,11 @@
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path("", views.index, name='index'),
+    path("<int:boat_id>/", views.details, name='details'),
+    path("submit/", views.submit, name="submit"),
+    path("edit/<int:boat_id>/", views.edit, name="edit"),
+    path("ajax/search/<str:text>/", views.ajax_search, name="ajax_search")
+]

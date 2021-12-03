@@ -29,7 +29,7 @@ def submit(request):
         form = SubmitRescue(request.POST)
         if form.is_valid():
             rescue = form.save()
-            return HttpResponseRedirect(reverse(index, args=[rescue.pk]))
+            return HttpResponseRedirect(reverse(details, args=[rescue.pk]))
     else:
         form = SubmitRescue()
 
@@ -49,7 +49,7 @@ def edit(request, rescue_id: int):
             rescue.pending_edit_of = edited_rescue
             rescue.save()
 
-            return HttpResponseRedirect(reverse(index, args=[rescue.pk]))
+            return HttpResponseRedirect(reverse(details, args=[rescue.pk]))
     else:
         edited_rescue.pk = None
         form = SubmitRescue(instance=edited_rescue)

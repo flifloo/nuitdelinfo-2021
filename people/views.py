@@ -26,13 +26,14 @@ def details(request, people_id: int):
         "people": get_people(people_id)
     })
 
+
 @login_required
 def submit(request):
     if request.method == "POST":
         form = SubmitPeople(request.POST)
         if form.is_valid():
             people = form.save()
-            return HttpResponseRedirect(reverse(index, args=[people.pk]))
+            return HttpResponseRedirect(reverse(details, args=[people.pk]))
     else:
         form = SubmitPeople()
 
@@ -52,7 +53,7 @@ def edit(request, people_id: int):
             people.pending_edit_of = edited_people
             people.save()
 
-            return HttpResponseRedirect(reverse(index, args=[people.pk]))
+            return HttpResponseRedirect(reverse(details, args=[people.pk]))
     else:
         edited_people.pk = None
         form = SubmitPeople(instance=edited_people)
