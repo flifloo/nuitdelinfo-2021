@@ -23,6 +23,8 @@ urlpatterns = [
     path("a/", include("rescue.urls")),
     path("p/", include("people.urls")),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django_registration.backends.activation.urls')),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
 
 handler400 = "error.views.index"
