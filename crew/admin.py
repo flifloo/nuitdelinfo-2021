@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from crew.models import Crew
+
+
+admin.site.register(Crew)

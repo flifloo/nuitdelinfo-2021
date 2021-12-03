@@ -1,5 +1,20 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="login" />
-</form>
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+
+<body>
+    <section>
+        <h1 class="regilog-title">S'inscrire</h1>
+        <div class="regilog-form">
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Inscription">
+            </form>
+        </div>
+    </section>
+</body>

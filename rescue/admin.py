@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from rescue.models import Rescue
+
+
+admin.site.register(Rescue)
