@@ -2,6 +2,7 @@
   position: fixed;
   display: none;
   padding: 30px;
+  overflow: auto;
   padding-top: 100px;
   height: 100vh;
   z-index: 9999;
@@ -57,6 +58,7 @@
     }
     .flex-search{
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-evenly;
       align-items: center;
       .search-col{
@@ -90,5 +92,17 @@
         }
       }
     }
+  }
+}
+
+@media all and (max-width: 1060px){
+  .search-col, .flex-card .card{
+        flex: 0 1 45% !important;
+  }
+}
+
+@media all and (max-width: 750px){
+  .search-col, .flex-card .card{
+        flex: 0 1 90% !important;
   }
 }
