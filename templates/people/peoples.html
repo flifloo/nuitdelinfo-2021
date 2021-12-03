@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <a href="/a/submit" class="btn-add">+</a>
+    <section>
+        <h1>Sauvetages</h1>
+        <div class="flex-card">
+            {% for people in peoples %}
+            <div class="card">
+                <div class="inner">
+                    <div class="img-container">
+                        <a href="/p/{{ people.pk }}/">
+                            <img src="{% static 'images/sauvetage.png' %}">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <p class="titre">{{ people }}</p>
+                        <a class="btn" href="/p/{{ people.pk }}/">Voir la personne</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+        <a class="btn btn--blue" href="">Charger plus de personnes</a>
+    </section>
+    {% include 'quicksearch.html' %}
+{% endblock %}

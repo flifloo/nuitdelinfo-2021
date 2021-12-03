@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
 from django.db.models import Q
 from django.http import Http404, HttpResponseRedirect, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import render
@@ -16,8 +17,8 @@ def get_people(people_id: int) -> People:
 
 
 def index(request):
-    return render(request, "people/personnes.html", {
-        "personnes": People.objects.all()
+    return render(request, "people/peoples.html", {
+        "peoples": People.objects.all()
     })
 
 
@@ -62,4 +63,4 @@ def edit(request, people_id: int):
 
 
 def ajax_search(request, text: str):
-    return JsonResponse(People.objects.filter(Q(first_name__icontains=text) | Q(first_name__icontains=text)))
+    return JsonResponse(serializers.serialize("json", People.objects.filter(Q(first_name__icontains=text) | Q(first_name__icontains=text))), safe=False)
