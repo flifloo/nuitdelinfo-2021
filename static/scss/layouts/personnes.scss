@@ -1,0 +1,83 @@
+.personnal-info{
+  display: flex;
+  justify-content: left;
+  margin-top: 50px;
+  align-items: center;
+  img{
+    width: 250px;
+    border: 2px solid $light;
+  }
+  .infos{
+    margin-left: 60px;
+    p:first-child{
+      font-size: 30px;
+    }
+  }
+}
+
+.biographie{
+    margin-top: 50px;
+}
+.timeline-container{
+  background: $background2;
+  padding: 15px 50px;
+  margin-top: 50px;
+  padding-right: 0;
+  .point-content{
+    .titre{
+      font-size: 20px;
+    }
+    .date{
+      color: $accent;
+      font-style: italic;
+      font-size: 15px;
+    }
+    .desc{
+      margin-top: 20px;
+    }
+  }
+  .timeline{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: auto;
+  position: relative;
+  padding: 20px 0;
+  &::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+  }
+  .stroke{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateX(-50%);
+    width: 280%;
+    height: 3px;
+    z-index: 10;
+    background: $light;
+  }
+  .point{
+    flex: 1 0 20%;
+    z-index: 15;
+    position: relative;
+    span{
+      top: -15px;
+      left: 35%;
+      transform: translateX(-50%);
+      position: absolute;
+    }
+    a{
+      display: block;
+      width: fit-content;
+      padding: 5px 10px;
+      background: $light;
+      border-radius: 50%;
+      &:hover, &.active{
+        color: $accent !important;
+        background: $accent;
+      }
+    }
+  }
+}
+}
