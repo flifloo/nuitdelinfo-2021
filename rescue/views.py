@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import render
 from django.urls import reverse
@@ -17,6 +18,7 @@ def index(request, rescue_id: int):
     return render(request, "article/article.html", {"rescue": get_rescue(rescue_id)})
 
 
+@login_required
 def submit(request):
     if request.method == "POST":
         form = SubmitRescue(request.POST)
@@ -29,6 +31,7 @@ def submit(request):
     return render(request, "article/submit.html", {"form": form})
 
 
+@login_required
 def edit(request, rescue_id: int):
     edited_rescue = get_rescue(rescue_id)
     if not edited_rescue.validated:

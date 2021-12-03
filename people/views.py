@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import render
 from django.urls import reverse
@@ -19,6 +20,7 @@ def index(request, people_id: int):
     })
 
 
+@login_required
 def submit(request):
     if request.method == "POST":
         form = SubmitPeople(request.POST)
@@ -31,6 +33,7 @@ def submit(request):
     return render(request, "people/submit.html", {"form": form})
 
 
+@login_required
 def edit(request, people_id: int):
     edited_people = get_people(people_id)
     if not edited_people.validated:
