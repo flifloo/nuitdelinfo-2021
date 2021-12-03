@@ -8,3 +8,6 @@ class Crew(Model):
     members = ManyToManyField(People)
 
     description = TextField()
+
+    def __str__(self):
+        return self.name

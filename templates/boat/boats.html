@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section>
+        <h1>Bateaux</h1>
+        <div class="flex-card">
+            {% for boat in boats %}
+                <div class="card">
+                    <div class="inner">
+                        <div class="img-container">
+                            <img src="{% static 'images/sauvetage.png' %}">
+                        </div>
+                        <div class="content">
+                            <p class="titre">{{ boat.name }}</p>
+                            <a class="btn" href="/b/{{ boat.pk }}/">Voir le bateau</a>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+        <a class="btn btn--blue" href="">Charger plus de bateaux</a>
+    </section>
+    {% include 'quicksearch.html' %}
+{% endblock %}

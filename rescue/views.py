@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.http import Http404, HttpResponseRedirect, HttpResponseBadRequest
+from django.db.models import Q
+from django.http import Http404, HttpResponseRedirect, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -28,7 +29,7 @@ def submit(request):
         form = SubmitRescue(request.POST)
         if form.is_valid():
             rescue = form.save()
-            return HttpResponseRedirect(reverse(index, args=[rescue.pk]))
+            return HttpResponseRedirect(reverse(details, args=[rescue.pk]))
     else:
         form = SubmitRescue()
 
@@ -48,9 +49,13 @@ def edit(request, rescue_id: int):
             rescue.pending_edit_of = edited_rescue
             rescue.save()
 
-            return HttpResponseRedirect(reverse(index, args=[rescue.pk]))
+            return HttpResponseRedirect(reverse(details, args=[rescue.pk]))
     else:
         edited_rescue.pk = None
         form = SubmitRescue(instance=edited_rescue)
 
     return render(request, "article/edit.html", {"form": form, "edit_id": edited_rescue})
+
+
+def ajax_search(request, text: str):
+    return JsonResponse(Rescue.objects.filter(Q(name__icontains=text) | Q(date__icontains=text) | Q(resume__icontains=text)))

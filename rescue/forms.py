@@ -10,7 +10,7 @@ class DateInput(DateInput):
 class SubmitRescue(ModelForm):
     class Meta:
         model = Rescue
-        fields = ["name", "date", "location_long", "location_lat", "resume", "saved", "rescuers", "description",
+        fields = ["name", "date", "location_long", "location_lat", "resume", "saved", "rescuers", "boats", "description",
                   "sources"]
         widgets = {
             "date": DateInput()

@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
+from rescue.models import Rescue
+
 
 def index(request):
-    context = {}
-    return render(request, "index.html", context)
+    return render(request, "index.html", {
+        "rescues": Rescue.objects.order_by("date")[:3]
+    })
