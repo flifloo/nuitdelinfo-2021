@@ -175,6 +175,12 @@ nav .right {
       -ms-flex-align: center;
           align-items: center;
 }
+nav .right .opennavmobile {
+  display: none;
+  cursor: pointer;
+  font-size: 60px;
+  color: #efefef;
+}
 nav .right img {
   width: 50px;
   cursor: pointer;
@@ -197,6 +203,65 @@ nav .right .search:hover {
   color: #00E8C2;
 }
 
+.navbar-mobile {
+  display: none;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  position: fixed;
+  width: 100%;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  background: #303030;
+  top: 0;
+  left: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 9998;
+}
+.navbar-mobile.open {
+  -webkit-transform: translateX(0) !important;
+          transform: translateX(0) !important;
+}
+.navbar-mobile .closenavmobile {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: #efefef;
+  font-size: 70px;
+  cursor: pointer;
+}
+.navbar-mobile a {
+  font-size: 35px;
+  padding: 30px 0;
+}
+.navbar-mobile i {
+  font-size: 50px;
+}
+
+@media all and (max-width: 800px) {
+  .navbar-mobile {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+
+  nav .left .submenu, nav .right a {
+    display: none;
+  }
+
+  nav .opennavmobile {
+    display: block !important;
+  }
+}
 .flex-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -268,6 +333,7 @@ nav .right .search:hover {
   position: fixed;
   display: none;
   padding: 30px;
+  overflow: auto;
   padding-top: 100px;
   height: 100vh;
   z-index: 9999;
@@ -351,6 +417,8 @@ nav .right .search:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -402,6 +470,20 @@ nav .right .search:hover {
   margin-left: 15px;
 }
 
+@media all and (max-width: 1060px) {
+  .search-col, .flex-card .card {
+    -webkit-box-flex: 0 !important;
+        -ms-flex: 0 1 45% !important;
+            flex: 0 1 45% !important;
+  }
+}
+@media all and (max-width: 750px) {
+  .search-col, .flex-card .card {
+    -webkit-box-flex: 0 !important;
+        -ms-flex: 0 1 90% !important;
+            flex: 0 1 90% !important;
+  }
+}
 .personnal-info {
   display: -webkit-box;
   display: -ms-flexbox;

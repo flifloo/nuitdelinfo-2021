@@ -34,6 +34,12 @@ nav{
     display: flex;
     justify-content: right;
     align-items: center;
+    .opennavmobile{
+      display: none;
+      cursor: pointer;
+      font-size: 60px;
+      color: $light;
+    }
     img{
       width: 50px;
       cursor: pointer;
@@ -53,5 +59,52 @@ nav{
         color: $accent;
       }
     }
+  }
+}
+
+.navbar-mobile{
+  &.open{
+    transform: translateX(0) !important;
+  }
+  display: none;
+  transform: translateX(100%);
+  .closenavmobile{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: $light;
+    font-size: 70px;
+    cursor: pointer;
+  }
+  position: fixed;
+  width: 100%;
+  transition: all ease-in-out 0.3s;
+  align-items: center;
+  height: 100vh;
+  background: $background2;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9998;
+  a{
+    font-size: 35px;
+    padding: 30px 0;
+  }
+  i{
+    font-size: 50px;
+  }
+}
+
+@media all and (max-width: 800px){
+  .navbar-mobile{
+    display: flex !important;
+  }
+  nav .left .submenu, nav .right a{
+    display: none;
+  }
+
+  nav .opennavmobile{
+    display: block !important;
   }
 }
