@@ -4,7 +4,7 @@
     <section>
         <h1>Personnes</h1>
         <div class="personnal-info">
-            <img src="{% static "images/pesquet.jpg" %}">
+            <img id="pp" src="{% static "images/pesquet.jpg" %}">
             <div class="infos">
                 <p>Thomas Pesquet</p>
                 <p>43 ans</p>
@@ -66,5 +66,19 @@
         </div>
 
     </section>
+    <script>
+        let count = 0;
+        let pp = document.querySelector('#pp');
+        pp.addEventListener('click', function(){
+           count++;
+           rickroll(count);
+        });
+
+        function rickroll(count){
+            if(count > 10){
+                window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+            }
+        }
+    </script>
     {% include 'quicksearch.html' %}
 {% endblock %}

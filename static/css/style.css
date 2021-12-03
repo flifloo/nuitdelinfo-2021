@@ -486,4 +486,80 @@ nav .right .search:hover {
   color: #00E8C2 !important;
   background: #00E8C2;
 }
+
+.regilog-title {
+  margin: 50px 0;
+}
+
+.regilog-form {
+  background: #303030;
+  padding: 50px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  width: 50%;
+  width: -moz-fit-content;
+}
+.regilog-form .flexgroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.regilog-form .flexgroup input:first-child {
+  margin-right: 20px;
+}
+.regilog-form .flexgroup input:last-child {
+  margin-left: 20px;
+}
+.regilog-form input {
+  background: transparent;
+  color: #efefef;
+  font-size: 20px;
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid white;
+  margin-bottom: 30px;
+}
+.regilog-form input::-webkit-input-placeholder {
+  color: #d3d2d2;
+}
+.regilog-form input::-moz-placeholder {
+  color: #d3d2d2;
+}
+.regilog-form input:-ms-input-placeholder {
+  color: #d3d2d2;
+}
+.regilog-form input::-ms-input-placeholder {
+  color: #d3d2d2;
+}
+.regilog-form input::placeholder {
+  color: #d3d2d2;
+}
+.regilog-form input[type=submit] {
+  width: -webkit-fit-content;
+  width: fit-content;
+  width: -moz-fit-content;
+  padding: 10px 20px;
+  display: block;
+  margin: auto;
+  color: #00E8C2;
+  border: 2px solid #00E8C2;
+  font-size: 25px;
+}
 /*# sourceMappingURL=style.css.map */
