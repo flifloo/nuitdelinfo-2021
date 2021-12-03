@@ -9,42 +9,20 @@
     <section>
         <h2>Articles récents</h2>
         <div class="flex-card">
-            <div class="card">
-                <div class="inner">
-                    <div class="img-container">
-                    <img src="{% static 'images/sauvetage.png' %}">
+            {% for rescue in rescues %}
+                <div class="card">
+                    <div class="inner">
+                        <div class="img-container">
+                        <img src="{% static 'images/sauvetage.png' %}">
+                    </div>
+                    <div class="content">
+                        <p class="date">{{ rescue.date }}</p>
+                        <p class="titre">{{ rescue.name }}</p>
+                        <a class="btn" href="/a/{{ rescue.pk }}">Voir l'article</a>
+                    </div>
+                    </div>
                 </div>
-                <div class="content">
-                    <p class="date">16/02/2020</p>
-                    <p class="titre">Sauvetage risqué en côte d'Ivoire</p>
-                    <a class="btn" href="">Voir l'article</a>
-                </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="inner">
-                    <div class="img-container">
-                    <img src="{% static 'images/sauvetage.png' %}">
-                </div>
-                <div class="content">
-                    <p class="date">16/02/2020</p>
-                    <p class="titre">Sauvetage risqué en côte d'Ivoire</p>
-                    <a class="btn" href="">Voir l'article</a>
-                </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="inner">
-                    <div class="img-container">
-                    <img src="{% static 'images/sauvetage.png' %}">
-                </div>
-                <div class="content">
-                    <p class="date">16/02/2020</p>
-                    <p class="titre">Sauvetage risqué en côte d'Ivoire</p>
-                    <a class="btn" href="">Voir l'article</a>
-                </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     {% include 'quicksearch.html' %}
