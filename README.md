@@ -23,9 +23,14 @@ You can add a mail server for user registration confirmation
 python3 -m venv venv
 . venv/bin/activate
 pip install -r requirements.txt 
+python manage.py migrate
 ```
 
 ## Start th server
 ```bash
 python manage.py runserver 8000
 ```
+
+## Test database (db.sql)
+Admin login: `nuitdelinfo_2021`
+Admin password: `nuitdelinfo_2021`
