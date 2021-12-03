@@ -1,0 +1,80 @@
+.article-detail{
+  .date{
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    color: $light;
+  }
+  .desc{
+    text-align: center;
+    margin-top: 20px;
+  }
+  .pic-flex{
+    display: flex;
+    margin: 30px 0;
+    justify-content: space-evenly;
+    align-items: center;
+    img{
+      width: 300px;
+    }
+  }
+  .save{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: $background2;
+    padding: 30px;
+    padding-top: 0;
+    div{
+      text-align: center;
+    }
+    h2{
+      color: $accent;
+    }
+  }
+}
+
+.article-form{
+  label{
+    display: block;
+  }
+  select{
+    margin-bottom: 20px;
+  }
+  .django-quill-widget-container{
+    background: white;
+    margin: 25px 0;
+    span{
+      color: #444;
+    }
+    .ql-editor{
+      background: $background;
+    }
+    .ql-container{
+      max-height: 40vh;
+    }
+  }
+  input{
+    background: transparent;
+    color: $light;
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    border: 2px solid white;
+    margin-bottom: 30px;
+    &::placeholder{
+      color: $light2;
+    }
+  }
+  input[type="submit"]{
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: 10px 20px;
+    display: block;
+    margin: auto;
+    color: $accent;
+    border: 2px solid $accent;
+    font-size: 25px;
+  }
+}

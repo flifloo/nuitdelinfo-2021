@@ -1,3 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% include 'quicksearch.html' %}
+    <section class="article-detail">
+        <h1>{{ rescue.name }}</h1>
+        <p class="date">{{ rescue.date }}</p>
+        <p class="desc">{{ rescue.resume }}</p>
+        <div class="pic-flex">
+            <img src="{% static 'images/bateau.jpg' %}">
+            <img src="{% static 'images/sauvetage.png' %}">
+        </div>
+        <div class="content">
+            {{ rescue.description.html | safe }}
+        </div>
+        <div class="save">
+            <div class="saver">
+                <h2>Sauveteurs :</h2>
+                {% for people in rescue.rescuers.all %}
+                    <a href="/p/{{ people.pk }}">{{ people }}</a>
+                {% endfor %}
+            </div>
+            <div class="saved">
+                <h2>Personnes sauvées :</h2>
+                {% for people in rescue.saved.all %}
+                    <a href="/p/{{ people.pk }}">{{ people }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </section>
+{% endblock %}
+
+
 {% if not rescue.validated %}
     {% if rescue.pending_edit_of %}
         <h1>This edit is not validated !</h1>
@@ -6,23 +41,12 @@
     {% endif %}
 {% endif %}
 
-{{ rescue.name }} <br />
-{{ rescue.date }} <br />
-<br />
 {{ rescue.location_long }} {{ rescue.location_lat }} <br />
-<br />
-{{ rescue.resume.html | safe }} <br />
-{{ rescue.description.html | safe }} <br />
-<br />
+
 {{ rescue.testimonials.html | safe }} <br />
 {{ rescue.sources.html | safe }}
 
-<h3>Saved</h3>
-{% for people in rescue.saved.all %}
-    <a href="/p/{{ people.pk }}">{{ people }}</a>
-{% endfor %}
+
 
 <h3>Rescuers</h3>
-{% for people in rescue.rescuers.all %}
-    <a href="/p/{{ people.pk }}">{{ people }}</a>
-{% endfor %}
+

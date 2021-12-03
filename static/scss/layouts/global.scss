@@ -6,7 +6,6 @@ body{
 
 h1, h2{
     @include font-courgette;
-    color: $light;
 }
 
 a{
@@ -17,10 +16,12 @@ h1{
     font-size: 60px;
     text-align: center;
     margin: 10px 0;
+    color: $accent;
 }
 
 h2{
     font-size: 40px;
+    color: $light;
 }
 
 img{
@@ -45,7 +46,7 @@ p{
     margin: 5px 0;
 }
 
-a, p, span, input, input::placeholder{
+a, p, span, input, input::placeholder, label{
     @include font-play;
     transition-duration: 0.3s;
     color: $light;
