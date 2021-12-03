@@ -1,23 +1,86 @@
-{% if not people.validated %}
-    {% if people.pending_edit_of %}
-        <h1>This edit is not validated !</h1>
-    {% else %}
-        <h1>This new entry is not validated !</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    {% if not people.validated %}
+        {% if people.pending_edit_of %}
+            <h1>This edit is not validated !</h1>
+        {% else %}
+            <h1>This new entry is not validated !</h1>
+        {% endif %}
     {% endif %}
-{% endif %}
 
-{{ people.first_name }} {{ people.last_name }} <br />
-{{ people.title }} <br />
-<br />
-{{ people.description.html | safe }} <br />
-<br />
-{{ people.birth }} <br />
-{{ people.death }} <br />
-<br />
-{{ people.history.html | safe }} <br />
-{{ people.genealogy.html | safe }} <br />
-{{ people.awards.html | safe }} <br />
-{{ people.pro_life.html | safe }} <br />
-<br />
-{{ people.testimonials.html | safe }} <br />
-{{ people.sources.html | safe }}
+    <section>
+        <h1>Personnes</h1>
+        <div class="personnal-info">
+            <img src="{% static "images/pesquet.jpg" %}">
+            <div class="infos">
+                <p>{{ people }}</p>
+                {% if title %}
+                    <p>{{ people.title }}</p>
+                {% endif %}
+                <p>Né le {{ people.birth }}</p>
+                {% if people.death %}
+                    <p>Décédé le {{ people.death }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <p class="biographie">{{ people.description.html | safe }}</p>
+
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="stroke"></div>
+                <div class="point">
+                    <a class="active" href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+                <div class="point">
+                    <a href="#">a</a>
+                    <span>20/20/2020</span>
+                </div>
+            </div>
+            <div class="point-content">
+                <p class="titre">Sauvetage en côte d'Ivoire</p>
+                <p class="date">Le 20/20/2020</p>
+                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Curabitur ultrices, massa at tincidunt auctor, dolor</p>
+            </div>
+        </div>
+
+        {{ people.history.html | safe }} <br />
+        {{ people.genealogy.html | safe }} <br />
+        {{ people.awards.html | safe }} <br />
+        {{ people.pro_life.html | safe }} <br />
+        <br />
+        {{ people.testimonials.html | safe }} <br />
+        {{ people.sources.html | safe }}
+    </section>
+    {% include 'quicksearch.html' %}
+{% endblock %}

@@ -14,11 +14,16 @@ def get_people(people_id: int) -> People:
         raise Http404("People does not exist")
 
 
-def index(request, people_id: int):
+def index(request):
+    return render(request, "people/personnes.html", {
+        "personnes": People.objects.all()
+    })
+
+
+def details(request, people_id: int):
     return render(request, "people/people.html", {
         "people": get_people(people_id)
     })
-
 
 @login_required
 def submit(request):

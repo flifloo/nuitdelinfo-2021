@@ -14,7 +14,11 @@ def get_rescue(rescue_id: int) -> Rescue:
         raise Http404("Rescue does not exist")
 
 
-def index(request, rescue_id: int):
+def index(request):
+    return render(request, "article/articles.html", {"rescues": Rescue.objects.all()})
+
+
+def details(request, rescue_id: int):
     return render(request, "article/article.html", {"rescue": get_rescue(rescue_id)})
 
 
