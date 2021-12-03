@@ -8,7 +8,6 @@ body {
 
 h1, h2 {
   font-family: "Courgette", cursive;
-  color: #efefef;
 }
 
 a {
@@ -19,10 +18,12 @@ h1 {
   font-size: 60px;
   text-align: center;
   margin: 10px 0;
+  color: #00E8C2;
 }
 
 h2 {
   font-size: 40px;
+  color: #efefef;
 }
 
 img {
@@ -73,7 +74,7 @@ input::-ms-input-placeholder {
   color: #efefef;
 }
 
-a, p, span, input, input::placeholder {
+a, p, span, input, input::placeholder, label {
   font-family: "Play", sans-serif;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
@@ -139,7 +140,7 @@ nav .logo {
   cursor: pointer;
   font-size: 50px;
   font-family: "Courgette", cursive;
-  color: #efefef;
+  color: #00E8C2;
   margin-right: 30px;
 }
 nav .left {
@@ -246,6 +247,21 @@ nav .right .search:hover {
 .flex-card .card .content a {
   margin: auto;
   margin-top: 30px;
+}
+
+.btn-add {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 75px;
+  color: black;
+  cursor: pointer;
+  background: #00E8C2;
+  padding: 0 24px;
+  border-radius: 50%;
+}
+.btn-add:hover {
+  color: black !important;
 }
 
 #quicksearch {
@@ -552,6 +568,108 @@ nav .right .search:hover {
   color: #d3d2d2;
 }
 .regilog-form input[type=submit] {
+  width: -webkit-fit-content;
+  width: fit-content;
+  width: -moz-fit-content;
+  padding: 10px 20px;
+  display: block;
+  margin: auto;
+  color: #00E8C2;
+  border: 2px solid #00E8C2;
+  font-size: 25px;
+}
+
+.article-detail .date {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+  font-style: italic;
+  color: #efefef;
+}
+.article-detail .desc {
+  text-align: center;
+  margin-top: 20px;
+}
+.article-detail .pic-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 30px 0;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.article-detail .pic-flex img {
+  width: 300px;
+}
+.article-detail .save {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #303030;
+  padding: 30px;
+  padding-top: 0;
+}
+.article-detail .save div {
+  text-align: center;
+}
+.article-detail .save h2 {
+  color: #00E8C2;
+}
+
+.article-form label {
+  display: block;
+}
+.article-form select {
+  margin-bottom: 20px;
+}
+.article-form .django-quill-widget-container {
+  background: white;
+  margin: 25px 0;
+}
+.article-form .django-quill-widget-container span {
+  color: #444;
+}
+.article-form .django-quill-widget-container .ql-editor {
+  background: #414142;
+}
+.article-form .django-quill-widget-container .ql-container {
+  max-height: 40vh;
+}
+.article-form input {
+  background: transparent;
+  color: #efefef;
+  display: block;
+  font-size: 20px;
+  width: 100%;
+  border: 2px solid white;
+  margin-bottom: 30px;
+}
+.article-form input::-webkit-input-placeholder {
+  color: #d3d2d2;
+}
+.article-form input::-moz-placeholder {
+  color: #d3d2d2;
+}
+.article-form input:-ms-input-placeholder {
+  color: #d3d2d2;
+}
+.article-form input::-ms-input-placeholder {
+  color: #d3d2d2;
+}
+.article-form input::placeholder {
+  color: #d3d2d2;
+}
+.article-form input[type=submit] {
   width: -webkit-fit-content;
   width: fit-content;
   width: -moz-fit-content;

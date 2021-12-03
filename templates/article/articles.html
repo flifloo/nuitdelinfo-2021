@@ -1,26 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <a href="/a/submit" class="btn-add">+</a>
     <section>
-        <h1>Articles</h1>
+        <h1>Sauvetages</h1>
         <div class="flex-card">
             {% for rescue in rescues %}
             <div class="card">
                 <div class="inner">
                     <div class="img-container">
-                        <img src="{% static 'images/sauvetage.png' %}">
+                        <a href="/a/{{ rescue.pk }}/">
+                            <img src="{% static 'images/sauvetage.png' %}">
+                        </a>
                     </div>
                     <div class="content">
                         <p class="date">{{ rescue.date }}</p>
                         <p class="titre">{{ rescue.name }}</p>
-                        <a class="btn" href="/a/{{ rescue.pk }}/">Voir l'article</a>
+                        <a class="btn" href="/a/{{ rescue.pk }}/">Voir le sauvetage</a>
                     </div>
                 </div>
 
             </div>
             {% endfor %}
         </div>
-        <a class="btn btn--blue" href="">Charger plus d'articles</a>
+        <a class="btn btn--blue" href="">Charger plus de sauvetages</a>
     </section>
     {% include 'quicksearch.html' %}
 {% endblock %}

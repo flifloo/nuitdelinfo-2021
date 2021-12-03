@@ -4,7 +4,8 @@
     <h1>Les sauveteurs du Dunkerquois</h1>
     <section>
         <h2>Carte dynamique</h2>
-        <img class="map" src="{% static 'images/map.png' %}">
+        <div id="map" style="width:100%; height:60%"></div>
+        <!-- <img class="map" src="{% static 'images/map.png' %}"> -->
     </section>
     <section>
         <h2>Articles récents</h2>
@@ -25,5 +26,18 @@
             {% endfor %}
         </div>
     </section>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script>
+        let map = L.map('map').setView([51.127, 2.253], 7);
+
+        let osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        });
+
+        L.marker([48.5, -0.09]).addTo(map).bindPopup('<a href="/a/1/">Sauvetage de mer</a>');
+
+        map.addLayer(osmLayer);
+     </script>
     {% include 'quicksearch.html' %}
 {% endblock %}
