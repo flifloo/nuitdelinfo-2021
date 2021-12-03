@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from error.models import ThomasPesquetQuotes
+
+
+admin.site.register(ThomasPesquetQuotes)

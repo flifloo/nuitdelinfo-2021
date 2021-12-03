@@ -19,3 +19,6 @@ class Rescue(Model):
     description = QuillField()
 
     sources = QuillField()
+
+    def __str__(self):
+        return self.name
