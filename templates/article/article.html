@@ -1,0 +1,28 @@
+{% if not rescue.validated %}
+    {% if rescue.pending_edit_of %}
+        <h1>This edit is not validated !</h1>
+    {% else %}
+        <h1>This new entry is not validated !</h1>
+    {% endif %}
+{% endif %}
+
+{{ rescue.name }} <br />
+{{ rescue.date }} <br />
+<br />
+{{ rescue.location_long }} {{ rescue.location_lat }} <br />
+<br />
+{{ rescue.resume.html | safe }} <br />
+{{ rescue.description.html | safe }} <br />
+<br />
+{{ rescue.testimonials.html | safe }} <br />
+{{ rescue.sources.html | safe }}
+
+<h3>Saved</h3>
+{% for people in rescue.saved.all %}
+    <a href="/p/{{ people.pk }}">{{ people }}</a>
+{% endfor %}
+
+<h3>Rescuers</h3>
+{% for people in rescue.rescuers.all %}
+    <a href="/p/{{ people.pk }}">{{ people }}</a>
+{% endfor %}

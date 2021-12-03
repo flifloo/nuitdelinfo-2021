@@ -31,12 +31,16 @@ ALLOWED_HOSTS = ["3cab-134-214-214-199.ngrok.io", "localhost", "4125-134-214-214
 # Application definition
 
 INSTALLED_APPS = [
+    "rescue.apps.RescueConfig",
+    "people.apps.PeopleConfig",
+    "error.apps.ErrorConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_quill"
 ]
 
 MIDDLEWARE = [
@@ -76,9 +80,12 @@ WSGI_APPLICATION = 'nuitdelinfo_2021.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'localhost',
+        'USER': 'nuitdelinfo_2021',
+        'NAME': 'nuitdelinfo_2021',
+        'PASSWORD': 'nuitdelinfo_2021'
+    },
 }
 
 
@@ -128,3 +135,12 @@ STATICFILES_DIRS = (path.join('static'),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = '/'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'me@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
