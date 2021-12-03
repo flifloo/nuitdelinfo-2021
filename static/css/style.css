@@ -356,7 +356,7 @@ nav .right .search:hover {
           justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
+          align-items: baseline;
 }
 #quicksearch .fast-search .flex-search .search-col {
   -webkit-box-flex: 0;

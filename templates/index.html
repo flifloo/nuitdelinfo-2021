@@ -5,7 +5,6 @@
     <section>
         <h2>Carte dynamique</h2>
         <div id="map" style="width:100%; height:60%"></div>
-        <!-- <img class="map" src="{% static 'images/map.png' %}"> -->
     </section>
     <section>
         <h2>Articles récents</h2>
@@ -30,12 +29,30 @@
     <script>
         let map = L.map('map').setView([51.127, 2.253], 7);
 
+        const iconRetinaUrl = '{% static 'images/marker-icon-2x.png' %}';
+        const iconUrl = '{% static 'images/marker-icon.png' %}';
+        const shadowUrl = '{% static 'images/marker-shadow.png' %}';
+        const iconDefault = L.icon({
+            iconRetinaUrl,
+            iconUrl,
+            shadowUrl,
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            tooltipAnchor: [16, -28],
+            shadowSize: [41, 41]
+        });
+
+        L.Marker.prototype.options.icon = iconDefault;
+
         let osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors',
             maxZoom: 19
         });
 
-        L.marker([48.5, -0.09]).addTo(map).bindPopup('<a href="/a/1/">Sauvetage de mer</a>');
+        {% for rescue in rescues %}
+            L.marker([{{ rescue.location_long }}, {{ rescue.location_lat }}]).addTo(map).bindPopup('<a href="/a/{{ rescue.pk }}/">{{ rescue.name }}</a>');
+        {% endfor %}
 
         map.addLayer(osmLayer);
      </script>

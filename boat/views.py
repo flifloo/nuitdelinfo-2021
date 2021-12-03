@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
 from django.db.models import Q
 from django.http import Http404, HttpResponseRedirect, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import render
@@ -62,4 +63,4 @@ def edit(request, boat_id: int):
 
 
 def ajax_search(request, text: str):
-    return JsonResponse(Boat.objects.filter(Q(name__icontains=text) | Q(description__icontains=text)))
+    return JsonResponse(serializers.serialize("json", Boat.objects.filter(Q(name__icontains=text) | Q(description__icontains=text))), safe=False)
