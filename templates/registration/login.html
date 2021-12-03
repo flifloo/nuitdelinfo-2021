@@ -1,37 +1,36 @@
-{% block content %}
+{% load static %}
 
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
 
+<body>
+<section>
     {% if next %}
         {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.</p>
+            <p>Votre compte n'a pas accès à cette page. Pour continuer, veuillez vous connecter avec un compte qui a accès.</p>
         {% else %}
-            <p>Please login to see this page.</p>
+            <p>Veuillez vous connecter pour voir cette page.</p>
         {% endif %}
     {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>{{ form.username.label_tag }}</td>
-                <td>{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password.label_tag }}</td>
-                <td>{{ form.password }}</td>
-            </tr>
-        </table>
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
-    </form>
+    <h1 class="regilog-title">Se connecter</h1>
+    {% if form.errors %}
+        <p>Votre nom d'utilisateur et votre mot de passe ne correspondent pas. Veuillez réessayer.</p>
+    {% endif %}
+    <div class="regilog-form">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Nom d'utilisateur">
+            <input type="password" name="password" placeholder="Mot de passe">
+            <input type="hidden" name="next" value="{{ next }}" />
+            <input type="submit" value="Connexion">
+        </form>
+    </div>
 
-    {# Assumes you setup the password_reset view in your URLconf #}
     <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
     <p><a href="{% url 'django_registration_register' %}">Register</a></p>
-
-{% endblock %}
+</section>
